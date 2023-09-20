@@ -2,6 +2,8 @@
 This repo contains multiple examples on how to use Vector Search with a selection of databases.
 The goal is to learn how to set them up, how to connect and how to semantically query the database. In some instances there's an integration with the popular framework [LangChain](https://python.langchain.com/docs/get_started/introduction).
 
+For all the folowing tests, Google Colab notebooks are available in the repo as well:
+
 - [MongoDB](./vector-mongodb/README.md)
 - [Neo4J](./vector-neo4j/README.md)
 - [PGVector](./vector-pgvector/README.md)
