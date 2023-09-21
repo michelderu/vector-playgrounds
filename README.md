@@ -43,6 +43,7 @@ Most of the tests above are merely a `hello-world` example, they are not meant t
 - Nice and uncluttered query language
 - Modular approach takes some complexity out of using vectorizers and LLMs
 - Specializes as a Vector Store only
+- No role based access
 ### Astra DB
 -  Astra DB has SOC2 Type2, Hipaa and is PCI compliant for your most demanding workloads
 - Astra DB provides more capabilities and better integrations for increased developer productivity:
