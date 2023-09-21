@@ -10,7 +10,7 @@ For all the folowing tests, Google Colab notebooks are available in the repo as 
 - [Redis](./vector-redis/README.md)
 - [Weaviate](./vector-weaviate/README.md)
 
-# <img src="./astra-db-logo.png" width="200" vspace="20"/>
+## <img src="./astra-db-logo.png" width="200" vspace="20"/>
 
 [DataStax](https://www.datastax.com) has made [Vector Search available for Apache Cassandra](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=255069753) and integrated it into their DBaaS [Astra DB](https://astra.datastax.com). Not only is this probably the best and fastest implementation of Vector Search, it's also integrated into the Assistant on the management interface for Astra DB.
 
