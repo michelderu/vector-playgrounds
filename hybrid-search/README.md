@@ -3,7 +3,8 @@ Vector Search provides a magical experience for similarity searches. It's a perf
 
 There's a catch though!
 
-As Vector Search, often implemented through searching for Aproximate Nearest Neighbours (ANN), returns results where their Vector is closest to the Vector of the question, it is exactly that: an Approximate and Closest match. 
+As Vector Search, often implemented through searching for Aproximate Nearest Neighbours (ANN), returns results where their Vector is closest to the Vector of the question, it is exactly that: an Approximate and Closest match.
+
 This is shown in the following diagram:
 
 ![ANN Search](./ANN-search.jpg)
@@ -11,7 +12,7 @@ This is shown in the following diagram:
 In this example the user searches for `I'd like more information about horror movies`. Because of the similarity search, the resulst will include other documents than strictly about horror.
 
 ## Keyword Augmented Search
-Sometimes you just want a bit more. If you're looking for higher quality results (also called relevancy).
+Sometimes you just want a bit more when you're looking for higher quality results (also called relevancy or performance).
 
 For that i'd like to introduce a new idea: Keyword Augmented Search (KAS).
 

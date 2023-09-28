@@ -12,6 +12,13 @@ The following collections of Google Colab notebooks show how easy and simple it 
 - [Image Search](https://colab.research.google.com/drive/11c9ijhndGSZjdEpqeaxipJZDPgRV3Z64)
 - [Retrieval Augmented Generation](https://colab.research.google.com/drive/1Eyf-fOIU8uKNn4p91szLVbMDWN8i7Ot_)
 
+### Strategies
+A lot of strategies are available to increase the relevancy of agent and chatbot interaction. A very well know pattern is Retrievel Augmented Generation (RAG).
+As AstraDB now also supports Full-Text searching, there is a new opportunity for increasing relevancy using Hybrid Search.
+
+Check out the following example that introduces Keyword Augmented Search (KAG):
+- [Keyword Augmented Search](./hybrid-search/README.md)
+
 ## Other Vector Search solutions
 
 For all the folowing tests, Google Colab notebooks are available in the repo as well:
