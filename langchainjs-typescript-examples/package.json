@@ -1,0 +1,51 @@
+{
+  "name": "sandbox",
+  "version": "1.0.0",
+  "description": "sandbox",
+  "main": "index.js",
+  "type": "module",
+  "license": "AGPL-version-3.0",
+  "private": false,
+  "engines": {
+    "node": ">= 14.0.0",
+    "npm": ">= 6.0.0"
+  },
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": "",
+  "keywords": [],
+  "author": {
+    "name": "",
+    "email": "",
+    "url": ""
+  },
+  "contributors": [],
+  "scripts": {
+    "build": "tsc",
+    "llm": "node ./dist/llm.js",
+    "chain": "node ./dist/chain.js",
+    "agents": "node ./dist/agents.js",
+    "memory": "node ./dist/memory.js",
+    "rag": "node ./dist/rag.js",
+    "dev-llm": "ts-node --esm ./src/llm.ts",
+    "dev-chain": "ts-node --esm ./src/chain.ts",
+    "dev-agents": "ts-node --esm ./src/agents.ts",
+    "dev-memory": "ts-node --esm ./src/memory.ts",
+    "dev-rag": "ts-node --esm ./src/rag.ts"
+  },
+  "dependencies": {
+    "@types/node": "^20.8.3",
+    "cassandra-driver": "^4.7.2",
+    "dotenv": "^16.3.1",
+    "langchain": "^0.0.166",
+    "openai": "^4.11.1",
+    "serpapi": "^2.0.0",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  }
+}

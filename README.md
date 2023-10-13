@@ -19,6 +19,14 @@ As AstraDB now also supports Full-Text searching, there is a new opportunity for
 Check out the following example that introduces Keyword Augmented Search (KAG):
 - [Keyword Augmented Search](./hybrid-search/README.md)
 
+### How do I run all of this in production?
+Colab and notebooks in general are great for prototyping. Langchain has a python package available for that. Astra DB is integrated in that as well.
+
+But how to run al of this in production?
+
+Easy! Use Langchain.js and have a look at this example:
+- [Production quality Generative AI with Langchain.js, Node.js, Astra DB and TypeScript](./langchainjs-typescript-examples/README.md)
+
 ## Other Vector Search solutions
 
 For all the folowing tests, Google Colab notebooks are available in the repo as well:
