@@ -43,7 +43,9 @@ Node.js is a popular and widely used runtime environment for executing JavaScrip
 While Node.js offers numerous advantages, it's important to consider factors like the nature of your application, team expertise, and specific use cases before adopting it in a production environment. Additionally, as with any technology, it's crucial to keep your Node.js runtime and dependencies up to date to address security and performance issues.
 
 ## Why langchain.js is ready for production
-According to [Langchainers](https://langchainers.hashnode.dev/why-langchainjs-is-important):
+See announcement on the [Langchain Blog](https://blog.langchain.dev/typescript-support/).
+
+And according to [Langchainers](https://langchainers.hashnode.dev/why-langchainjs-is-important):
 
 A few years ago, we were called in to create an internal AL/ML curriculum for the largest tech & consulting company in the world. What we learned during that engagement was that most Fortune 1000 CEOs were frustrated that they had seen impressive AI/ML demos but they were not seeing the demos translate to implementations of value that reach their customers and benefit the bottom line.
 
