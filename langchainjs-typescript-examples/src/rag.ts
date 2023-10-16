@@ -49,7 +49,7 @@ export const run = async () => {
                     Then, when they wander and dazed into the center, he laughs and\
                     laughs at them-so hard, that he laughs them to death!",
             "Achilles: Oh, no!",
-            "Tortoise: But it's only a myth. Courage, Achilles.",
+            "Tortoise: But its only a myth. Courage, Achilles.",
         ],
         [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }],
         embedder,
@@ -59,12 +59,13 @@ export const run = async () => {
             table: "goldel_escher_bach",
             keyspace: "vector_preview",
             dimensions: 1536,
-            primaryKey: { name: "row_id", type: "text" },
-            metadataColumns: [ { name: "metadata", type: "map<text, text>" } ]
+            primaryKey: { name: "id", type: "int" },
+            metadataColumns: [ { name: "metadata", type: "text" } ]
         }
     )
 
-    const results = vectorStore.similaritySearch("Who is scared?", 2);
+    console.log("SimSearch");
+    const results = await vectorStore.similaritySearch("Who is scared?", 2);
     console.log({ results });
 
     // Get a Retriever from the Vector Store
@@ -90,6 +91,7 @@ Question: {question}`
         new StringOutputParser(),
     ]);
 
+    console.log("RAG");
     const result = await chain.invoke("Who is scared?");
     console.log(result);
 };
