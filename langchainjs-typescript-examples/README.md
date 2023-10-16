@@ -61,6 +61,7 @@ In the past, we have worked with Apache Spark and other related cloud-based SaaS
 A lot of the bwlo is inspired on a great article on [Langchainers](https://langchainers.hashnode.dev/getting-started-with-langchainjs).
 First make sure you set up the variables in `.env`. Then install the modules:
 ```
+cd src
 npm install
 ```
 
