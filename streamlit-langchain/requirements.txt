@@ -5,3 +5,6 @@ langchain
 tiktoken
 cassandra-driver
 cassio
+pypdf
+pandas
+streamlit-authenticator
