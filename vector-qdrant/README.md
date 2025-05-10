@@ -260,7 +260,7 @@ A fun and insightful experiment you can do with this setup is to test Qdrant's r
    In your `.env` file, set:
    ```env
    REPLICATION_FACTOR=2
-   SHARD_NUMBER=6
+   SHARD_NUMBER=3
    ```
    (Or adjust as desired for your experiment.)
 
