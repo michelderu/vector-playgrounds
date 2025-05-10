@@ -10,5 +10,7 @@ dependencies = [
     "datasets",
     "openai",
     "transformers",
-    "torch"
+    "torch",
+    "python-dotenv",
+    "more-itertools"
 ]

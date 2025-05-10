@@ -3,8 +3,10 @@ from openai import OpenAI
 import os
 import time
 from fastembed import SparseTextEmbedding
+import random
 
 client = QdrantClient(url=os.getenv("QDRANT_HOST"), prefer_grpc=True)
+collection_name = os.getenv("COLLECTION_NAME")
 
 query_text = "What about quantum computing?"
 
@@ -17,7 +19,7 @@ sparse_model = SparseTextEmbedding(
 )
 sparse_vector = list(sparse_model.embed(query_text))[0]
 
-### search (deprecated): Dense vector with Binary Quantization
+### search (deprecated): Dense vector with Binary Quantization + Filtering
 print ("### Search: Dense vector with Binary Quantization ###")
 
 start_time = time.perf_counter()
@@ -31,6 +33,16 @@ results = client.search(
             oversampling=3.0, # Ideal value for openai 1563
         )
     ),
+    query_filter=models.Filter( # filter by user_id
+        must=[
+            models.FieldCondition(
+                key='user_id',
+                match=models.MatchValue(
+                    value=random.randint(1, 10)
+                )
+            )
+        ]
+    ),
     limit=5
 )
 end_time = time.perf_counter()
@@ -40,7 +52,7 @@ for result in results:
 
 print(f"  Time taken to process results: {(end_time - start_time)*1000:.2f}ms")
 
-### query_points: Dense vector
+### query_points: Dense vector + Filtering
 print ("\n### Query points: Dense vector ###")
 
 start_time = time.perf_counter()
@@ -50,6 +62,16 @@ results = client.query_points(
     using="dense",
     with_payload=True,
     with_vectors=False,
+    query_filter=models.Filter(
+        must=[
+            models.FieldCondition(
+                key='user_id',
+                match=models.MatchValue(
+                    value=random.randint(1, 10)
+                )
+            )
+        ]
+    ),
     limit=5
 )
 end_time = time.perf_counter()
@@ -59,7 +81,7 @@ for result in results.points:
 
 print(f"  Time taken to process results: {(end_time - start_time)*1000:.2f}ms")
 
-### query_points: Sparse vector
+### query_points: Sparse vector + Filtering
 print ("\n### Query points: Sparse vector ###")
 
 start_time = time.perf_counter()
@@ -69,6 +91,16 @@ results = client.query_points(
     using="sparse",
     with_payload=True,
     with_vectors=False,
+    query_filter=models.Filter(
+        must=[
+            models.FieldCondition(
+                key='user_id',
+                match=models.MatchValue(
+                    value=random.randint(1, 10)
+                )
+            )
+        ]
+    ),
     limit=5
 )
 end_time = time.perf_counter()
@@ -78,7 +110,7 @@ for result in results.points:
 
 print(f"  Time taken to process results: {(end_time - start_time)*1000:.2f}ms")
 
-### query_points: Dense vector with Binary Quantization
+### query_points: Dense vector with Binary Quantization + Filtering
 print ("\n### Query points: Dense vector with Binary Quantization ###")
 
 start_time = time.perf_counter()
@@ -95,6 +127,16 @@ results = client.query_points(
             rescore=True,
             oversampling=3.0,
         )
+    ),
+    query_filter=models.Filter(
+        must=[
+            models.FieldCondition(
+                key='user_id',
+                match=models.MatchValue(
+                    value=random.randint(1, 10)
+                )
+            )
+        ]
     )
 )
 end_time = time.perf_counter()
@@ -104,7 +146,7 @@ for result in results.points:
 
 print(f"  Time taken to process results: {(end_time - start_time)*1000:.2f}ms")
 
-### query_points: Reciprocal Rank Fusion with Dense vector + Sparse vector
+### query_points: Reciprocal Rank Fusion with Dense vector + Sparse vector + Filtering
 print ("\n### Query points: Reciprocal Rank Fusion with Dense vector + Sparse vector ###")
 
 prefetch = [
@@ -129,6 +171,16 @@ results = client.query_points(
     ),
     with_payload=True,
     with_vectors=False,
+    query_filter=models.Filter(
+        must=[
+            models.FieldCondition(
+                key='user_id',
+                match=models.MatchValue(
+                    value=random.randint(1, 10)
+                )
+            )
+        ]
+    ),
     limit=5
 )
 end_time = time.perf_counter()
@@ -138,7 +190,7 @@ for result in results.points:
 
 print(f"  Time taken to process results: {(end_time - start_time)*1000:.2f}ms")
 
-### query_points: Reciprocal Rank Fusion with Dense vector + Sparse vector and Binary Quantization
+### query_points: Reciprocal Rank Fusion with Dense vector and Binary Quantization + Sparse vector + Filtering
 print ("\n### Query points: Reciprocal Rank Fusion with Dense vector + Sparse vector and Binary Quantization ###")
 
 prefetch = [
@@ -170,6 +222,16 @@ results = client.query_points(
             rescore=True,
             oversampling=3.0,
         )
+    ),
+    query_filter=models.Filter(
+        must=[
+            models.FieldCondition(
+                key='user_id',
+                match=models.MatchValue(
+                    value=random.randint(1, 10)
+                )
+            )
+        ]
     )
 )
 end_time = time.perf_counter()
@@ -178,3 +240,5 @@ for result in results.points:
     print(f"{result.payload['title']} ({result.score})")
 
 print(f"  Time taken to process results: {(end_time - start_time)*1000:.2f}ms")
+
+client.close()
