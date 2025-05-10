@@ -1,0 +1,14 @@
+[project]
+name = "langflow-runtime"
+version = "0.1.0"
+description = "Agentic AI Workshop with Langflow"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "requests >= 2.31.0",
+    "qdrant-client[fastembed]>=1.14.2",
+    "datasets",
+    "openai",
+    "transformers",
+    "torch"
+]
